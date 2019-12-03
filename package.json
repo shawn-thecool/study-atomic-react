@@ -7,7 +7,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "styled-components": "^4.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,13 +34,19 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@storybook/addon-a11y": "^5.2.8",
     "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-backgrounds": "^5.2.8",
+    "@storybook/addon-knobs": "^5.2.8",
     "@storybook/addon-links": "^5.2.8",
+    "@storybook/addon-notes": "^5.2.8",
+    "@storybook/addon-storysource": "^5.2.8",
     "@storybook/addons": "^5.2.8",
     "@storybook/react": "^5.2.8"
   },
   "prettier": {
-    "printWidth": 150,
+    "printWidth": 120,
     "semi": false,
     "tabWidth": 2,
     "bracketSpacing": true,

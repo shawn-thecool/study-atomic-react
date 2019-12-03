@@ -1,16 +1,33 @@
 import React from 'react'
+import StyledDiv from './Div.styled'
 
-const DIV_THEME = {
-  DEFAULT: 'DEFAULT'
+export const DIV_THEME = {
+  DEFAULT: 'DEFAULT',
+  BORDER: 'BORDER',
+  // LINE: 'LINE',
+  // WIRE: 'WIRE',
+  // DIVIDER: 'DIVIDER',
+  // SHADOW: 'SHADOW',
+  // BOX: 'BOX'
 }
 
-function Div(props) {
-  const { children, ...rest } = props
+export const DIV_COLOR = {
+  PRIMARY: 'PRIMARY',
+  SECONDARY: 'SECONDARY',
+  SUCCESS: 'SUCCESS',
+  DANGER: 'DANGER',
+  WARING: 'WARING',
+  INFO: 'INFO',
+  LIGHT: 'LIGHT',
+  DARK: 'DARK'
+}
 
-  return <div {...rest}>{children}</div>
+export default function Div({ children, ...rest }) {
+  return <StyledDiv {...rest}>{children}</StyledDiv>
 }
 
 Div.defaultProps = {
   theme: DIV_THEME.DEFAULT,
+  color: DIV_COLOR.PRIMARY,
   children: ''
 }
