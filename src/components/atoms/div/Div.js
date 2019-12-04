@@ -1,9 +1,15 @@
 import React from 'react'
 import StyledDiv from './Div.styled'
 
+export const DIV_SIZE = {
+  SMALL: 'SMALL',
+  MIDDLE: 'MIDDLE',
+  BIG: 'BIG'
+}
+
 export const DIV_THEME = {
   DEFAULT: 'DEFAULT',
-  BORDER: 'BORDER',
+  BORDER: 'BORDER'
   // LINE: 'LINE',
   // WIRE: 'WIRE',
   // DIVIDER: 'DIVIDER',
