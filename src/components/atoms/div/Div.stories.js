@@ -4,7 +4,6 @@ import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs'
 import Div, { DIV_SIZE, DIV_THEME, DIV_COLOR } from './Div'
 
 const stories = storiesOf('Components|Atoms/Div', module)
-const param = { info: { inline: true, header: true } }
 const indexComp = () =>
   Object.values(DIV_THEME).map((theme, themeIdx) => (
     <Fragment key={`div-index-theme-${themeIdx}`}>
@@ -16,7 +15,8 @@ const indexComp = () =>
             key={`div-index-color-${colorIdx}`}
             theme={theme}
             color={color}
-            style={{ display: 'inline-block', marginRight: '10px', textAlign: 'center', lineHeight: '50px' }}
+            size={DIV_SIZE.SMALL}
+            style={{ display: 'inline-block', margin: '10px', textAlign: 'center', lineHeight: '50px' }}
           >
             <div>{theme}</div>
             <div>{color}</div>
@@ -38,6 +38,5 @@ const themeComp = () => (
 
 stories
   .addDecorator(withKnobs)
-  .addParameters(param)
   .add('Index', indexComp)
   .add('Theme', themeComp)

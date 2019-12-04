@@ -3,27 +3,12 @@ import styled, { css } from 'styled-components'
 const CSS_BASE = css`
   box-sizing: border-box;
 `
-const CSS_SIZE = {
-  SMALL: css`
-    width: 100px;
-    height: 100px;
-  `,
-  MIDDLE: css`
-    width: 200px;
-    height: 200px;
-  `,
-  BIG: css`
-    width: 300px;
-    height: 300px;
-  `
-}
 const CSS_THEME = {
   DEFAULT: css``,
   BORDER: css`
     border: 1px solid #333;
   `
 }
-
 const CSS_COLOR = {
   PRIMARY: css`
     background-color: #007bff;
@@ -58,6 +43,20 @@ const CSS_COLOR = {
     color: #fff;
   `
 }
+const CSS_SIZE = {
+  SMALL: css`
+    width: 100px;
+    height: 100px;
+  `,
+  MIDDLE: css`
+    width: 200px;
+    height: 200px;
+  `,
+  BIG: css`
+    width: 300px;
+    height: 300px;
+  `
+}
 const getCss = ({ theme, color, size, style }) => {
   const themeCss = CSS_THEME[theme] || CSS_THEME.DEFAULT
   const colorCss = CSS_COLOR[color] || CSS_COLOR.PRIMARY
@@ -70,7 +69,6 @@ const getCss = ({ theme, color, size, style }) => {
     ${style}
   `
 }
-
 const StyledDiv = styled.div`
   ${getCss}
 `
