@@ -1,0 +1,136 @@
+import { Meta, Story, Preview, Wrapper } from '@storybook/addon-docs/blocks'
+import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs'
+import Button, { BUTTON_SIZE, BUTTON_THEME, BUTTON_COLOR } from './Button'
+
+<Meta 
+  title="COMPONENTS.Atoms" 
+  component={Button} 
+  decorators={[ withKnobs ]}
+/>
+
+# Button
+
+### _Button 컴포넌트는 ?_
+
+- 스타일드 컴포넌트를 반환하는 일종의 랩퍼 컴포넌트로 설계되었습니다.
+- 반드시 기본 프로퍼티가 설정되어야 합니다.
+
+## Directory Structure
+
+- path : components/atoms/Button
+
+```zh
+.
+├── Button.js          - for exporting Button Component
+├── Button.md          - for notice
+├── Button.stories.js  - for storybook
+└── Button.styled.js   - for theming & styling
+```
+
+## Default Properties
+
+- 컴포넌트의 프로퍼티는 defaultProps 에 정의 되어야 합니다.
+
+<Wrapper>
+  <div style={{padding:'20px', border:'2px solid #efefef'}}>
+    <pre>{JSON.stringify(Button.defaultProps, null, 2)}</pre>
+  </div>
+</Wrapper>
+
+## Styled Component
+
+- 스타일드 컴포넌트는 내부에서 정의된 CSS를 사용합니다.
+- 추가로 CSS를 삽입 하고 싶을 때 custom css를 사용합니다.
+- 오버라이딩 순서
+
+```text
+1. base_css   // 컴포넌트 내부 기본 CSS
+2. size_css   // 크기 관련 CSS
+3. theme_css  // 테마 관련 CSS
+4. color_css  // 공통 컬러 관련 CSS
+5. custom_css // 추가 CSS
+
+```
+
+### theme-types
+
+<Wrapper>
+  {Object.values(BUTTON_THEME).map((theme, idx) =>(
+    <Button
+      key={`Button-theme-${idx}`}
+      theme={theme}
+      color={BUTTON_COLOR.PRIMARY}
+      size={BUTTON_SIZE.SMALL}
+      style={{ display: 'inline-block', margin: '10px', textAlign: 'center', lineHeight: '50px' }}
+    >
+      <div>{theme}</div>
+    </Button>
+  ))}
+</Wrapper>
+
+<Wrapper>
+  <div style={{padding:'20px', border:'2px solid #efefef'}}>
+    <pre>{JSON.stringify(BUTTON_THEME, null, 2)}</pre>
+  </div>
+</Wrapper>
+
+### color-types
+
+<Wrapper>
+  {Object.values(BUTTON_COLOR).map((color, idx) =>(
+    <Button
+      key={`Button-color-${idx}`}
+      theme={BUTTON_THEME.BORDER}
+      color={color}
+      size={BUTTON_SIZE.SMALL}
+      style={{ display: 'inline-block', margin: '10px', textAlign: 'center', lineHeight: '50px' }}
+    >
+      <div>{color}</div>
+    </Button>
+  ))}
+</Wrapper>
+
+<Wrapper>
+  <div style={{padding:'20px', border:'2px solid #efefef'}}>
+    <pre>{JSON.stringify(BUTTON_COLOR, null, 2)}</pre>
+  </div>
+</Wrapper>
+
+### size-types
+
+<Wrapper>
+  {Object.values(BUTTON_SIZE).map((size, idx) =>(
+    <Button
+      key={`Button-size-${idx}`}
+      theme={BUTTON_THEME.BORDER}
+      color={BUTTON_COLOR.PRIMARY}
+      size={size}
+      style={{ display: 'inline-block', margin: '10px', textAlign: 'center', lineHeight: '50px' }}
+    >
+      <div>{size}</div>
+    </Button>
+  ))} 
+</Wrapper>
+
+<Wrapper>
+  <div style={{padding:'20px', border:'2px solid #efefef'}}>
+    <pre>{JSON.stringify(BUTTON_SIZE, null, 2)}</pre>
+  </div>
+</Wrapper>
+
+## Test
+
+- 스타일 컴포넌트에서 제공하는 종류들을 knob 에드온을 이용하여 테스트해 볼 수 있습니다.
+
+<Preview>
+  <Story name="Button">
+    <Button
+      theme={optionsKnob('THEME', BUTTON_THEME, BUTTON_THEME.DEFAULT, { display: 'select' }, '')}
+      color={optionsKnob('COLOR', BUTTON_COLOR, BUTTON_COLOR.PRIMARY, { display: 'select' }, '')}
+      size={optionsKnob('SIZE', BUTTON_SIZE, BUTTON_SIZE.MIDDLE, { display: 'select' }, '')}
+      style={{ display: 'inline-block', textAlign: 'center', lineHeight: '50px' }}
+    >
+      {text('Text', `BUTTON`)}
+    </Button>
+  </Story>
+</Preview>
