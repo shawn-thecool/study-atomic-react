@@ -1,15 +1,13 @@
-import React from './node_modules/react';
-import Div from 'components/atoms/div'
+import React from 'react'
 
-import './App.css';
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <h1>hello react</h1>
-
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
